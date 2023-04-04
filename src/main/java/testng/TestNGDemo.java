@@ -8,23 +8,23 @@ public class TestNGDemo {
 
     @Test
     public void createNewUserTest(){
-        User firsUser = new User("John",30);
+        User firsUser = null;
         Assert.assertNotNull(firstUser);
     }
-    @Test(dependsOnMethods = "createNewUserTest")
+    @Test(dependsOnMethods = "createNewTest")
     public void loginTest(){
         Assert.assertTrue(true);
     }
     @DataProvider
     public static Object[][]numbers(){
         return new Object[][]{
-                {"j"},
-                {0,10,10},
-                {-10,20,10}
+                {"john@gmail.com","ValidPass"},
+                {"johngmail.com","ValidPass"},
+                {"john@gmail.com","InvalidPass"}
         };
     }
     @Test(dataProvider = "inputValues")
        public void testLoginFun(String username,String password){
-        System.out.println(username + "" + password);
+        System.out.println(username + " " + password);
     }
 }
